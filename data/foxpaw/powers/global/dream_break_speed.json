@@ -1,0 +1,13 @@
+{
+    "type": "apoli:modify_break_speed",
+    "block_condition": {
+        "type": "apoli:block",
+        "block": "minecraft:petrified_oak_slab"
+    },
+    "hidden": true,
+    "modifier":{
+        "operation":"set_total",
+        "amount": 0.5,
+        "id":"dream_break_speed"
+    }
+}

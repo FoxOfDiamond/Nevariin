@@ -1,0 +1,31 @@
+{
+    "name":"Dreamer",
+    "description":"Spawn in a dream world, a reflection of the physical plane. By using abilities in the real world, you can capture parts of it into your domain.",
+    "type": "origins:multiple",
+    "spawn":{
+        "type": "origins:modify_player_spawn",
+        "dimension": "foxpaw:dream_world"
+    },
+    "callback":{
+        "type": "origins:action_on_callback",
+        "entity_action_respawned": {
+            "type": "origins:execute_command",
+            "command": "/function foxpaw:nevariin/dreamer/respawn"
+        }
+    },
+    "void":{
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:type",
+            "damage_type":"minecraft:out_of_world"
+        },
+        "self_action": {
+            "type": "origins:execute_command",
+            "command": "/function foxpaw:nevariin/dream_world/void"
+        },
+        "modifier":{
+            "operation":"set_total",
+            "amount":0
+        }
+    }
+}

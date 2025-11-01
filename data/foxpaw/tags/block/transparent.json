@@ -1,0 +1,19 @@
+{
+    "values": [
+        "#air",
+        "water",
+        "lava",
+        "#replaceable",
+        "#all_signs",
+        "#all_hanging_signs",
+        "#crops",
+        "torch",
+        "soul_torch",
+        "wall_torch",
+        "soul_wall_torch",
+        "redstone_wall_torch",
+        "redstone_torch",
+        "redstone_wire",
+        "turtle_egg"
+    ]
+}

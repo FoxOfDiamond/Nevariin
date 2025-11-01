@@ -1,0 +1,25 @@
+{
+    "values": [
+        "gold_block",
+        "gold_ingot",
+        "gold_nugget",
+        "gold_ore",
+        "golden_apple",
+        "golden_axe",
+        "golden_boots",
+        "golden_carrot",
+        "golden_chestplate",
+        "golden_helmet",
+        "golden_hoe",
+        "golden_horse_armor",
+        "golden_leggings",
+        "golden_pickaxe",
+        "golden_shovel",
+        "golden_sword",
+        "raw_gold",
+        "raw_gold_block",
+        "nether_gold_ore",
+        "deepslate_gold_ore",
+        "enchanted_golden_apple"
+    ]
+}

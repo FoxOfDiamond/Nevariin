@@ -1,0 +1,20 @@
+{
+    "name": "Ethereal vitality",
+    "description": "You only have one heart, but spawns with 13 absorption hearts and can be refilled by certain abilities.",
+    "type": "apoli:multiple",
+    "hearts": {
+        "type": "apoli:action_on_callback",
+        "entity_action_added": {
+            "type": "apoli:execute_command",
+            "command": "/function foxpaw:nevariin/ethereal_vitality/attributes_gain"
+        },
+        "entity_action_removed": {
+            "type": "apoli:execute_command",
+            "command": "/function foxpaw:nevariin/ethereal_vitality/attributes_lost"
+        },
+        "entity_action_respawned": {
+            "type": "apoli:execute_command",
+            "command": "/function foxpaw:nevariin/ethereal_vitality/set_absorption_hearts {value:26}"
+        }
+    }
+}

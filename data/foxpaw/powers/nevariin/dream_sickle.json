@@ -1,0 +1,224 @@
+{
+    "name": "Dream sickle",
+    "description": "Spend 20% dream power to travel between worlds after a short windup. Regenerates all your absorption hearts.",
+    "type": "origins:multiple",
+    "active": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        },
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [{
+                    "condition": {
+                        "type": "origins:resource",
+                        "compare_to": 0,
+                        "comparison": ">",
+                        "resource": "*:*_cooldown"
+                    },
+                    "action": {
+                        "type": "origins:nothing"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "compare_to": 15,
+                        "comparison": "==",
+                        "resource": "*:*_channel"
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [{
+                                "type": "origins:change_resource",
+                                "resource": "*:*_cooldown",
+                                "change": 1000,
+                                "operation": "set"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "function foxpaw:nevariin/dream_sickle/slash"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_channel",
+                                "change": 0,
+                                "operation": "set"
+                            },
+                            {
+                                "type": "origins:add_velocity",
+                                "client": false,
+                                "server": true,
+                                "space": "local",
+                                "z": 2.5,
+                                "y": 0.1
+                            },
+                            {
+                                "type": "origins:swing_hand",
+                                "hand": "MAIN_HAND"
+                            },
+                            {
+                                "type": "origins:delay",
+                                "ticks": 5,
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [{
+                                            "type": "origins:if_else",
+                                            "condition": {
+                                                "type": "origins:equipped_item",
+                                                "equipment_slot": "mainhand",
+                                                "item_condition": {
+                                                    "type": "origins:ingredient",
+                                                    "ingredient": {
+                                                        "tag": "minecraft:hoes"
+                                                    }
+                                                },
+                                                "inverted": true
+                                            },
+                                            "if_action": {
+                                                "type": "origins:add_velocity",
+                                                "x": 0,
+                                                "y": 0,
+                                                "z": 0,
+                                                "set": true
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "/attribute @s minecraft:generic.gravity modifier add nevariin:dream_sickle -1 add_multiplied_total"
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 5,
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [{
+                                                        "type": "origins:execute_command",
+                                                        "command": "/function foxpaw:nevariin/dream_world/sphere/capture_sphere {radius:5}"
+                                                    },
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "/attribute @s minecraft:generic.gravity modifier remove nevariin:dream_sickle"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:swing_hand",
+                                            "hand": "MAIN_HAND"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [{
+                                "type": "origins:change_resource",
+                                "resource": "*:*_channel",
+                                "change": 1,
+                                "operation": "add"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_channeling",
+                                "change": 5,
+                                "operation": "set"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "/particle cloud ~ ~ ~ 0 0 0 0.3 5"
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:constant",
+                        "value": true
+                    }
+                }
+            ]
+        },
+        "cooldown": 1
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 0,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 14,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_cooldown",
+                "compare_to": 0,
+                "comparison": ">"
+            }
+        }
+    },
+    "channel": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 15,
+        "start_value": 0,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 14,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_channeling",
+                "compare_to": 0,
+                "comparison": ">"
+            }
+        }
+    },
+    "channeling": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "start_value": 0,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [{
+
+                    "type": "origins:change_resource",
+                    "resource": "*:*_channel",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/function foxpaw:nevariin/global/channel_attribute_lost"
+                }
+            ]
+        },
+        "max_action": {
+            "type": "origins:execute_command",
+            "command": "/function foxpaw:nevariin/global/channel_attribute_gain"
+        }
+    },
+    "release": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:change_resource",
+                    "resource": "*:*_channeling",
+                    "change": -1,
+                    "operation": "add"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_cooldown",
+                    "change": -1,
+                    "operation": "add"
+                }
+            ]
+        }
+    }
+}

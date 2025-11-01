@@ -1,0 +1,53 @@
+{
+    "name": "Ghastly form",
+    "description": "Your ghost-like properties lets you take no suffocation damage, less magic damage and move without triggering sensors.",
+    "type": "apoli:multiple",
+    "suffocation": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [{
+                    "type": "origins:type",
+                    "damage_type": "minecraft:cramming"
+                },
+                {
+                    "type": "origins:type",
+                    "damage_type": "minecraft:in_wall"
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "set_total",
+            "amount": 0
+        }
+    },
+    "magic": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [{
+                    "type": "origins:type",
+                    "damage_type": "minecraft:magic"
+                },
+                {
+                    "type": "origins:type",
+                    "damage_type": "minecraft:indirect_magic"
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "multiply_base_additive",
+            "amount": -0.5
+        }
+    },
+    "silence": {
+        "type": "origins:prevent_game_event",
+        "events": [
+            "minecraft:step",
+            "minecraft:swim",
+            "minecraft:elytra_glide",
+            "minecraft:hit_ground",
+            "minecraft:splash"
+        ]
+    }
+}

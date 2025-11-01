@@ -1,0 +1,48 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "unbreaking_1_override": {
+        "type": "origins:item_on_item",
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                "type": "origins:empty",
+                "inverted": true
+            }, 
+            {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "fabric:type": "fabric:components",
+                    "base": {
+                        "item": "minecraft:enchanted_book"
+                    },
+                    "components": {
+                        "minecraft:stored_enchantments": {
+                            "levels":{
+                                "minecraft:unbreaking":1
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+        },
+        "on_item_condition": {
+            "type": "origins:and",
+            "conditions": [{
+                    "type": "origins:empty",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:custom_data",
+                    "nbt": "{nevariin:false_knight_helmet}"
+                }
+            ]
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        }
+    }
+}

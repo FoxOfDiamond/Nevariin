@@ -1,0 +1,2 @@
+function foxpaw:nevariin/false_knight/set_temp_uuid
+function foxpaw:nevariin/false_knight/helmet/wear_helmet_macro with storage foxpaw:nevariin/false_knight/temp

@@ -1,0 +1,308 @@
+{
+    "name": "False knight",
+    "description": "You start with low durability iron armor that regenerates over time, and cannot wear anything else.",
+    "type": "origins:multiple",
+    "setup": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "function foxpaw:nevariin/false_knight/reset_armor"
+        },
+        "entity_action_respawned": {
+            "type": "origins:and",
+            "actions": [{
+
+                    "type": "origins:change_resource",
+                    "resource": "*:*_helmet_cooldown",
+                    "change": -1,
+                    "operation": "set"
+                },
+                {
+
+                    "type": "origins:change_resource",
+                    "resource": "*:*_chestplate_cooldown",
+                    "change": -1,
+                    "operation": "set"
+                },
+                {
+
+                    "type": "origins:change_resource",
+                    "resource": "*:*_leggings_cooldown",
+                    "change": -1,
+                    "operation": "set"
+                },
+                {
+
+                    "type": "origins:change_resource",
+                    "resource": "*:*_boots_cooldown",
+                    "change": -1,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function foxpaw:nevariin/false_knight/reset_armor"
+                }
+            ]
+        }
+    },
+    "break": {
+        "type": "origins:action_when_damage_taken",
+        "entity_action": {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+                "type": "origins:and",
+                "actions": [{
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [{
+                                    "type": "origins:equipped_item",
+                                    "equipment_slot": "head",
+                                    "item_condition": {
+                                        "type": "origins:empty"
+                                    }
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_helmet_cooldown",
+                                    "compare_to": -1,
+                                    "comparison": "=="
+                                }
+                            ]
+                        },
+                        "if_action": {
+                            "type": "origins:change_resource",
+                            "resource": "*:*_helmet_cooldown",
+                            "change": 1000,
+                            "operation": "add"
+                        }
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [{
+                                    "type": "origins:equipped_item",
+                                    "equipment_slot": "chest",
+                                    "item_condition": {
+                                        "type": "origins:empty"
+                                    }
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_chestplate_cooldown",
+                                    "compare_to": -1,
+                                    "comparison": "=="
+                                }
+                            ]
+                        },
+                        "if_action": {
+                            "type": "origins:change_resource",
+                            "resource": "*:*_chestplate_cooldown",
+                            "change": 1000,
+                            "operation": "add"
+                        }
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [{
+                                    "type": "origins:equipped_item",
+                                    "equipment_slot": "legs",
+                                    "item_condition": {
+                                        "type": "origins:empty"
+                                    }
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_leggings_cooldown",
+                                    "compare_to": -1,
+                                    "comparison": "=="
+                                }
+                            ]
+                        },
+                        "if_action": {
+                            "type": "origins:change_resource",
+                            "resource": "*:*_leggings_cooldown",
+                            "change": 1000,
+                            "operation": "add"
+                        }
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [{
+                                    "type": "origins:equipped_item",
+                                    "equipment_slot": "feet",
+                                    "item_condition": {
+                                        "type": "origins:empty"
+                                    }
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_boots_cooldown",
+                                    "compare_to": -1,
+                                    "comparison": "=="
+                                }
+                            ]
+                        },
+                        "if_action": {
+                            "type": "origins:change_resource",
+                            "resource": "*:*_boots_cooldown",
+                            "change": 1000,
+                            "operation": "add"
+                        }
+                    }
+                ]
+            }
+        },
+        "cooldown": 0
+    },
+    "helmet_cooldown": {
+        "type": "origins:resource",
+        "min": -1,
+        "max": 30,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_helmet_cooldown",
+                "compare_to": 0,
+                "comparison": ">"
+            }
+        }
+    },
+    "chestplate_cooldown": {
+        "type": "origins:resource",
+        "min": -1,
+        "max": 80,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_chestplate_cooldown",
+                "compare_to": 0,
+                "comparison": ">"
+            }
+        }
+    },
+    "leggings_cooldown": {
+        "type": "origins:resource",
+        "min": -1,
+        "max": 60,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_leggings_cooldown",
+                "compare_to": 0,
+                "comparison": ">"
+            }
+        }
+    },
+    "boots_cooldown": {
+        "type": "origins:resource",
+        "min": -1,
+        "max": 20,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 0,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_boots_cooldown",
+                "compare_to": 0,
+                "comparison": ">"
+            }
+        }
+    },
+    "recover": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:change_resource",
+                    "resource": "*:*_helmet_cooldown",
+                    "change": -1,
+                    "operation": "add"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_chestplate_cooldown",
+                    "change": -1,
+                    "operation": "add"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_leggings_cooldown",
+                    "change": -1,
+                    "operation": "add"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_boots_cooldown",
+                    "change": -1,
+                    "operation": "add"
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [{
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_helmet_cooldown",
+                                "compare_to": 0,
+                                "comparison": "=="
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "function foxpaw:nevariin/false_knight/helmet/replace_helmet"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_chestplate_cooldown",
+                                "compare_to": 0,
+                                "comparison": "=="
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "function foxpaw:nevariin/false_knight/chestplate/replace_chestplate"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_leggings_cooldown",
+                                "compare_to": 0,
+                                "comparison": "=="
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "function foxpaw:nevariin/false_knight/leggings/replace_leggings"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_boots_cooldown",
+                                "compare_to": 0,
+                                "comparison": "=="
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "function foxpaw:nevariin/false_knight/boots/replace_boots"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

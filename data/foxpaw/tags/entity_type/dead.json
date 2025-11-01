@@ -1,0 +1,14 @@
+{
+	"values":[
+        "item",
+        "item_frame",
+        "armor_stand",
+        "experience_orb",
+        "potion",
+        "snowball",
+        "egg",
+        "area_effect_cloud",
+        "ender_pearl",
+        "painting"
+    ]
+}

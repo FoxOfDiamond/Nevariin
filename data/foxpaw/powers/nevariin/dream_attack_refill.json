@@ -1,0 +1,113 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "attack_refill_1": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "*:nevariin/dream_power_dream_bar",
+                "operation": "add",
+                "change": 30
+            }
+        },
+        "damage_condition": {
+            "type": "origins:amount",
+            "compare_to": 2,
+            "comparison": "<="
+        }
+    },
+    "attack_refill_2": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "*:nevariin/dream_power_dream_bar",
+                "operation": "add",
+                "change": 60
+            }
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [{
+                "type": "origins:amount",
+                "compare_to": 4,
+                "comparison": "<="
+            }, {
+                "type": "origins:amount",
+                "compare_to": 2,
+                "comparison": ">"
+            }]
+        }
+    },
+    "attack_refill_3": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "*:nevariin/dream_power_dream_bar",
+                "operation": "add",
+                "change": 90
+            }
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [{
+                "type": "origins:amount",
+                "compare_to": 6,
+                "comparison": "<="
+            }, {
+                "type": "origins:amount",
+                "compare_to": 4,
+                "comparison": ">"
+            }]
+        }
+    },
+    "attack_refill_4": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "*:nevariin/dream_power_dream_bar",
+                "operation": "add",
+                "change": 120
+            }
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [{
+                "type": "origins:amount",
+                "compare_to": 8,
+                "comparison": "<="
+            }, {
+                "type": "origins:amount",
+                "compare_to": 6,
+                "comparison": ">"
+            }]
+        }
+    },
+    "attack_refill_5": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "*:nevariin/dream_power_dream_bar",
+                "operation": "add",
+                "change": 150
+            }
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [{
+                "type": "origins:amount",
+                "compare_to": 8,
+                "comparison": ">"
+            }]
+        }
+    }
+}

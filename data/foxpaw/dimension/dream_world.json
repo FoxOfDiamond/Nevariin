@@ -1,0 +1,10 @@
+{
+    "type": "foxpaw:dream",
+    "generator": {
+        "type": "flat",
+        "settings": {
+            "layers": [],
+            "biome": "foxpaw:dreamscape"
+        }
+    }
+}

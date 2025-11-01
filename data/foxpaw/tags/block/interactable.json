@@ -1,0 +1,32 @@
+{
+	"replace": false,
+	"values": [
+        "crafting_table",
+        "furnace",
+        "blast_furnace",
+        "smoker",
+        "chest",
+        "trapped_chest",
+        "ender_chest",
+        "dropper",
+        "dispenser",
+        "dropper",
+        "#fence_gates",
+        "#doors",
+        "#trapdoors",
+        "composter",
+        "barrel",
+        "#buttons",
+        "lever",
+        "hopper",
+        "#beds",
+        "brewing_stand",
+        "stonecutter",
+        "beacon",
+        "enchanting_table",
+        "#anvil",
+        "#all_signs",
+        "repeater",
+        "comparator"
+	]
+}

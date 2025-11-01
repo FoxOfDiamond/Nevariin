@@ -1,0 +1,1 @@
+data remove storage foxpaw:nevariin/false_knight armor_storage

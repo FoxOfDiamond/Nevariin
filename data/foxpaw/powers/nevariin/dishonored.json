@@ -1,0 +1,36 @@
+{
+    "name": "Dishonored",
+    "description": "You take double damage from spectral arrows and triple damage from gold items",
+    "type": "apoli:multiple",
+    "gold": {
+        "type": "origins:modify_damage_taken",
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:equipped_item",
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient":{
+                        "tag": "foxpaw:gold"
+                    }
+                },
+                "equipment_slot": "mainhand"
+            }
+        },
+        "modifier": {
+            "operation": "multiply_base_additive",
+            "amount": 2
+        }
+    },
+    "spectral": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:projectile",
+            "projectile": "spectral_arrow"
+        },
+        "modifier": {
+            "operation": "multiply_base_additive",
+            "amount": 1
+        }
+    }
+}

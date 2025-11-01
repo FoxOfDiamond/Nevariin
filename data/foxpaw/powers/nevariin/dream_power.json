@@ -1,0 +1,26 @@
+{
+    "name": "Dream power",
+    "description": "You can store ethereal energy to spend on abilities. Regenerates when you deal damage, or slowly over time.",
+    "type": "apoli:multiple",
+    "dream_bar": {
+        "type": "origins:resource",
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 6,
+            "icon_index": 1
+        },
+        "min": 0,
+        "max": 1000,
+        "start_value": 800
+    },
+    "passive_refill": {
+        "type": "origins:action_over_time",
+        "interval": 60,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_dream_bar",
+            "operation": "add",
+            "change": 10
+        }
+    }
+}

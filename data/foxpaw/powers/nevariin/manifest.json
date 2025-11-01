@@ -1,0 +1,173 @@
+{
+    "name": "Manifest",
+    "description": "Spend 20% dream power to travel between worlds after a short windup. Regenerates all your absorption hearts.",
+    "type": "origins:multiple",
+    "active": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": true
+        },
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [{
+                    "condition": {
+                        "type": "origins:resource",
+                        "compare_to": 0,
+                        "comparison": ">",
+                        "resource": "*:*_cooldown"
+                    },
+                    "action": {
+                        "type": "origins:nothing"
+                    }
+                },
+                {
+                    "condition": {
+                        "inverted": true,
+                        "type": "origins:on_block"
+                    },
+                    "action": {
+                        "type": "apoli:nothing"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "compare_to": 50,
+                        "comparison": "==",
+                        "resource": "*:*_channel"
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [{
+                                "type": "origins:change_resource",
+                                "resource": "*:*_cooldown",
+                                "change": 1000,
+                                "operation": "set"
+                            },{
+                                "type": "origins:change_resource",
+                                "resource": "*:nevariin/dream_power_dream_bar",
+                                "change": -200,
+                                "operation": "add"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "function foxpaw:nevariin/manifest/manifest"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_channel",
+                                "change": 0,
+                                "operation": "set"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [{
+                                "type": "origins:change_resource",
+                                "resource": "*:*_channel",
+                                "change": 1,
+                                "operation": "add"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_channeling",
+                                "change": 5,
+                                "operation": "set"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "/particle cloud ~ ~ ~ 0 0 0 0.3 5"
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:constant",
+                        "value": true
+                    }
+                }
+            ]
+        },
+        "cooldown": 1
+    },
+    "cooldown": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 80,
+        "start_value": 0,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 14,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_cooldown",
+                "compare_to": 0,
+                "comparison": ">"
+            }
+        }
+    },
+    "channel": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 50,
+        "start_value": 0,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 14,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_channeling",
+                "compare_to": 0,
+                "comparison": ">"
+            }
+        }
+    },
+    "channeling": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "start_value": 0,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [{
+
+                    "type": "origins:change_resource",
+                    "resource": "*:*_channel",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "/function foxpaw:nevariin/global/channel_attribute_lost"
+                }
+            ]
+        },
+        "max_action": {
+            "type": "origins:execute_command",
+            "command": "/function foxpaw:nevariin/global/channel_attribute_gain"
+        }
+    },
+    "release": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:change_resource",
+                    "resource": "*:*_channeling",
+                    "change": -1,
+                    "operation": "add"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_cooldown",
+                    "change": -1,
+                    "operation": "add"
+                }
+            ]
+        }
+    }
+}

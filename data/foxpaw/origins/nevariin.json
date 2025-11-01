@@ -1,0 +1,26 @@
+{
+	"powers": [
+		"*:nevariin/vulpine_grace",
+		"*:nevariin/intangibility",
+		"*:nevariin/ethereal_vitality",
+		"*:nevariin/dishonored",
+
+		"*:nevariin/dream_power",
+		"*:nevariin/dream_attack_refill",
+		
+		"*:nevariin/false_knight",
+		
+		"*:nevariin/dreamer",
+
+		"*:nevariin/manifest",
+
+		"*:nevariin/dream_sickle"
+	],
+	"icon": {
+		"id": "minecraft:petrified_oak_slab"
+	},
+	"order": 1,
+	"impact": 3,
+    "name":"Nevariin",
+	"description":"A fox warrior dream, former great knight, dishonored and executed when she's caught practicing dream magic, before the moth clan fully embraced the pale king as their new god. Proficient dreamwielder."
+}

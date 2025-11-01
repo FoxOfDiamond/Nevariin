@@ -1,0 +1,16 @@
+{
+    "name":"Vulpine grace",
+    "description":"You're smaller but more agile and take no fall damage.",
+    "type": "apoli:multiple",
+    "size":{
+        "type": "apoli:action_on_callback",
+        "entity_action_added": {
+            "type": "apoli:execute_command",
+            "command": "/function foxpaw:nevariin/vulpine_grace/attributes_gain"
+        },
+        "entity_action_removed": {
+            "type": "apoli:execute_command",
+            "command": "/function foxpaw:nevariin/vulpine_grace/attributes_lost"
+        }
+    }
+}

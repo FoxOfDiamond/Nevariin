@@ -1,0 +1,14 @@
+{
+	"replace": false,
+	"values": [
+        "#minecraft:air",
+		"water",
+		"lava",
+		"#minecraft:replaceable_by_trees",
+		"#minecraft:climbable",
+		"minecraft:kelp",
+		"kelp_plant",
+		"#fire",
+        "#crops"
+    	]
+}
