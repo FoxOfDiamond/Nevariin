@@ -1,16 +1,14 @@
 {
-    "name": "Manifest",
-    "description": "Spend 20% dream power to travel between worlds after a short windup. Regenerates all your absorption hearts.",
+    "name": "Dream rift",
+    "description": "Spend 80% dream power to tear a hole in the boundary between worlds. Create a portal that lasts for 5 minutes that any entity can use to travel between the real and dream world. All entities coming through the portal can no longer regenerate hp. Players return to the rift location with max hp and don't lose items when killed. Can be used while running to throw the portal forward a short distance, or while crouching to destroy a portal. Only one can exist at a time.",
     "type": "origins:multiple",
-    "badges": [
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/arrow_up.png",
-            "text":{
-                "text": "Secondary key while looking straight up"
-            }
+    "badges": [{
+        "type": "origins:tooltip",
+        "sprite": "origins:textures/gui/badge/active.png",
+        "text": {
+            "text": "Secondary key"
         }
-    ],
+    }],
     "active": {
         "type": "origins:active_self",
         "key": {
@@ -19,12 +17,11 @@
         },
         "entity_action": {
             "type": "origins:if_else_list",
-            "actions": [
-                {
+            "actions": [{
                     "condition": {
                         "type": "origins:resource",
                         "resource": "*:nevariin/rotation_rotation",
-                        "compare_to": 2,
+                        "compare_to": 1,
                         "comparison": "!="
                     },
                     "action": {
@@ -45,7 +42,7 @@
                 {
                     "condition": {
                         "type": "origins:resource",
-                        "compare_to": 200,
+                        "compare_to": 800,
                         "comparison": "<",
                         "resource": "*:nevariin/dream_power_dream_bar"
                     },
@@ -59,13 +56,13 @@
                         "type": "origins:on_block"
                     },
                     "action": {
-                        "type": "origins:nothing"
+                        "type": "apoli:nothing"
                     }
                 },
                 {
                     "condition": {
                         "type": "origins:resource",
-                        "compare_to": 50,
+                        "compare_to": 100,
                         "comparison": "==",
                         "resource": "*:*_channel"
                     },
@@ -76,21 +73,26 @@
                                 "resource": "*:*_cooldown",
                                 "change": 1000,
                                 "operation": "set"
-                            },{
-                                "type": "origins:change_resource",
-                                "resource": "*:nevariin/dream_power_dream_bar",
-                                "change": -200,
-                                "operation": "add"
                             },
                             {
-                                "type": "origins:execute_command",
-                                "command": "function foxpaw:nevariin/manifest/manifest"
+                                "type": "origins:change_resource",
+                                "resource": "*:nevariin/dream_power_dream_bar",
+                                "change": -800,
+                                "operation": "add"
                             },
                             {
                                 "type": "origins:change_resource",
                                 "resource": "*:*_channel",
                                 "change": 0,
                                 "operation": "set"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "/function foxpaw:nevariin/dream_rift/summon"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "/function foxpaw:nevariin/manifest/manifest"
                             }
                         ]
                     }
@@ -128,7 +130,7 @@
     "cooldown": {
         "type": "origins:resource",
         "min": 0,
-        "max": 80,
+        "max": 200,
         "start_value": 0,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
@@ -144,7 +146,7 @@
     "channel": {
         "type": "origins:resource",
         "min": 0,
-        "max": 50,
+        "max": 100,
         "start_value": 0,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",

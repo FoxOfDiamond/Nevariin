@@ -1,0 +1,1 @@
+particle dust{scale:2,color:[1.0,1.0,0.7]} ~ ~1 ~ 0.15 0.3 0.15 0 20

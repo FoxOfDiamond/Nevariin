@@ -1,0 +1,1 @@
+execute unless score @s nevariin_forceloader matches 1 run forceload remove ~ ~

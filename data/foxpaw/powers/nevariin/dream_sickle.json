@@ -2,12 +2,13 @@
     "name": "Dream sickle",
     "description": "Spend 20% dream power to travel between worlds after a short windup. Regenerates all your absorption hearts.",
     "type": "origins:multiple",
-    "badges": [
-        {
-            "type": "origins:keybind",
-            "sprite": "origins:textures/gui/badge/active.png"
+    "badges": [{
+        "type": "origins:tooltip",
+        "sprite": "origins:textures/gui/badge/active.png",
+        "text": {
+            "text": "Primary key"
         }
-    ],
+    }],
     "recast": {
         "type": "origins:active_self",
         "key": {
@@ -28,6 +29,12 @@
                         "compare_to": 0,
                         "comparison": ">",
                         "resource": "*:*_slash_window"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:nevariin/rotation_rotation",
+                        "compare_to": 1,
+                        "comparison": "=="
                     }
                 ]
             },
@@ -70,6 +77,37 @@
                                 {
                                     "type": "origins:execute_command",
                                     "command": "/attribute @s minecraft:generic.gravity modifier remove nevariin:dream_sickle"
+                                },
+                                {
+                                    "type": "origins:area_of_effect",
+                                    "radius": 5,
+                                    "shape": "sphere",
+                                    "bientity_action": {
+                                        "type": "origins:and",
+                                        "actions": [{
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:add_velocity",
+                                                    "y": 0.5,
+                                                    "space": "world"
+                                                }
+                                            },
+                                            {
+                                                "type": "origins:add_velocity",
+                                                "z": 3,
+                                                "reference": "position"
+                                            },
+                                            {
+                                                "type": "origins:actor_action",
+                                                "action": {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "*:nevariin/dream_power_dream_bar",
+                                                    "change": 200,
+                                                    "operation": "add"
+                                                }
+                                            }
+                                        ]
+                                    }
                                 }
                             ]
                         }
@@ -105,6 +143,17 @@
             "actions": [{
                     "condition": {
                         "type": "origins:resource",
+                        "resource": "*:nevariin/rotation_rotation",
+                        "compare_to": 1,
+                        "comparison": "!="
+                    },
+                    "action": {
+                        "type": "origins:nothing"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
                         "compare_to": 0,
                         "comparison": ">",
                         "resource": "*:*_cooldown"
@@ -112,7 +161,7 @@
                     "action": {
                         "type": "origins:nothing"
                     }
-                }, 
+                },
                 {
                     "condition": {
 
@@ -179,6 +228,37 @@
                                         {
                                             "type": "origins:execute_command",
                                             "command": "/attribute @s minecraft:generic.gravity modifier remove nevariin:dream_sickle"
+                                        },
+                                        {
+                                            "type": "origins:area_of_effect",
+                                            "radius": 5,
+                                            "shape": "sphere",
+                                            "bientity_action": {
+                                                "type": "origins:and",
+                                                "actions": [{
+                                                        "type": "origins:target_action",
+                                                        "action": {
+                                                            "type": "origins:add_velocity",
+                                                            "y": 0.5,
+                                                            "space": "world"
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "origins:add_velocity",
+                                                        "z": 3,
+                                                        "reference": "position"
+                                                    },
+                                                    {
+                                                        "type": "origins:actor_action",
+                                                        "action": {
+                                                            "type": "origins:change_resource",
+                                                            "resource": "*:nevariin/dream_power_dream_bar",
+                                                            "change": 200,
+                                                            "operation": "add"
+                                                        }
+                                                    }
+                                                ]
+                                            }
                                         }
                                     ]
                                 }
@@ -244,6 +324,37 @@
                                 "resource": "*:*_channeling",
                                 "operation": "set",
                                 "change": 0
+                            },
+                            {
+                                "type": "origins:area_of_effect",
+                                "radius": 2,
+                                "shape": "sphere",
+                                "bientity_action": {
+                                    "type": "origins:and",
+                                    "actions": [{
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:add_velocity",
+                                                "y": 0.2,
+                                                "space": "world"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:add_velocity",
+                                            "z": 2.5,
+                                            "reference": "rotation"
+                                        },
+                                        {
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:change_resource",
+                                                "resource": "*:nevariin/dream_power_dream_bar",
+                                                "change": 150,
+                                                "operation": "add"
+                                            }
+                                        }
+                                    ]
+                                }
                             }
                         ]
                     }

@@ -1,0 +1,1 @@
+$execute positioned ~$(x) ~ ~$(z) unless score $(d)_$(x)_$(z) nevariin_forceloader matches 1 run forceload remove ~ ~

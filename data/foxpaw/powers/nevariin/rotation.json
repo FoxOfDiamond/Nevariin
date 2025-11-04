@@ -4,7 +4,7 @@
     "rotation":{
         "type": "origins:resource",
         "min": 0,
-        "max": 3
+        "max": 2
     },
     "update":{
         "type": "origins:action_over_time",

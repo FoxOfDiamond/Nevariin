@@ -1,2 +1,2 @@
-execute in foxpaw:dream_world run forceload add ~16 ~16 ~-16 ~-16
-execute in overworld run forceload add ~16 ~16 ~-16 ~-16
+execute in foxpaw:dream_world run function foxpaw:nevariin/dream_world/forceload_dimension {d:"dream_world"}
+execute in overworld run function foxpaw:nevariin/dream_world/forceload_dimension {d:"overworld"}
