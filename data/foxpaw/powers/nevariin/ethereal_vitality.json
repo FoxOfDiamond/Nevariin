@@ -14,7 +14,7 @@
         },
         "entity_action_respawned": {
             "type": "apoli:execute_command",
-            "command": "/function foxpaw:nevariin/ethereal_vitality/set_absorption_hearts {value:26}"
+            "command": "/function foxpaw:nevariin/ethereal_vitality/set_absorption_hearts {health:26}"
         }
     }
 }

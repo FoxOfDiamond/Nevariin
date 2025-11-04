@@ -2,6 +2,98 @@
     "name": "Dream sickle",
     "description": "Spend 20% dream power to travel between worlds after a short windup. Regenerates all your absorption hearts.",
     "type": "origins:multiple",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png"
+        }
+    ],
+    "recast": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [{
+                        "type": "origins:resource",
+                        "compare_to": 0,
+                        "comparison": "==",
+                        "resource": "*:*_cooldown"
+                    },
+                    {
+                        "type": "origins:resource",
+                        "compare_to": 0,
+                        "comparison": ">",
+                        "resource": "*:*_slash_window"
+                    }
+                ]
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [{
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "minecraft:hoes"
+                                }
+                            },
+                            "inverted": true
+                        },
+                        "if_action": {
+                            "type": "origins:add_velocity",
+                            "x": 0,
+                            "y": 0,
+                            "z": 0,
+                            "set": true
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "/attribute @s minecraft:generic.gravity modifier add nevariin:dream_sickle -1 add_multiplied_total"
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 5,
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [{
+                                    "type": "origins:execute_command",
+                                    "command": "/function foxpaw:nevariin/dream_world/sphere/capture_sphere {radius:5}"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "/attribute @s minecraft:generic.gravity modifier remove nevariin:dream_sickle"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:swing_hand",
+                        "hand": "MAIN_HAND"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_cooldown",
+                        "change": 1000,
+                        "operation": "set"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_slash_window",
+                        "change": 0,
+                        "operation": "set"
+                    }
+                ]
+            }
+        }
+    },
     "active": {
         "type": "origins:active_self",
         "key": {
@@ -20,6 +112,95 @@
                     "action": {
                         "type": "origins:nothing"
                     }
+                }, 
+                {
+                    "condition": {
+
+                        "type": "origins:resource",
+                        "compare_to": 0,
+                        "comparison": ">",
+                        "resource": "*:*_slash_window"
+
+                    },
+                    "action": {
+                        "type": "origins:nothing"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [{
+                                "type": "origins:resource",
+                                "compare_to": 15,
+                                "comparison": "==",
+                                "resource": "*:*_channel"
+                            },
+                            {
+                                "type": "origins:sneaking"
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [{
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:equipped_item",
+                                    "equipment_slot": "mainhand",
+                                    "item_condition": {
+                                        "type": "origins:ingredient",
+                                        "ingredient": {
+                                            "tag": "minecraft:hoes"
+                                        }
+                                    },
+                                    "inverted": true
+                                },
+                                "if_action": {
+                                    "type": "origins:add_velocity",
+                                    "x": 0,
+                                    "y": 0,
+                                    "z": 0,
+                                    "set": true
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "/attribute @s minecraft:generic.gravity modifier add nevariin:dream_sickle -1 add_multiplied_total"
+                            },
+                            {
+                                "type": "origins:delay",
+                                "ticks": 5,
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [{
+                                            "type": "origins:execute_command",
+                                            "command": "/function foxpaw:nevariin/dream_world/sphere/capture_sphere {radius:5}"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "/attribute @s minecraft:generic.gravity modifier remove nevariin:dream_sickle"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "origins:swing_hand",
+                                "hand": "MAIN_HAND"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_cooldown",
+                                "change": 50,
+                                "operation": "set"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_channeling",
+                                "operation": "set",
+                                "change": 0
+                            }
+                        ]
+                    }
                 },
                 {
                     "condition": {
@@ -31,12 +212,6 @@
                     "action": {
                         "type": "origins:and",
                         "actions": [{
-                                "type": "origins:change_resource",
-                                "resource": "*:*_cooldown",
-                                "change": 1000,
-                                "operation": "set"
-                            },
-                            {
                                 "type": "origins:execute_command",
                                 "command": "function foxpaw:nevariin/dream_sickle/slash"
                             },
@@ -59,57 +234,16 @@
                                 "hand": "MAIN_HAND"
                             },
                             {
-                                "type": "origins:delay",
-                                "ticks": 5,
-                                "action": {
-                                    "type": "origins:and",
-                                    "actions": [{
-                                            "type": "origins:if_else",
-                                            "condition": {
-                                                "type": "origins:equipped_item",
-                                                "equipment_slot": "mainhand",
-                                                "item_condition": {
-                                                    "type": "origins:ingredient",
-                                                    "ingredient": {
-                                                        "tag": "minecraft:hoes"
-                                                    }
-                                                },
-                                                "inverted": true
-                                            },
-                                            "if_action": {
-                                                "type": "origins:add_velocity",
-                                                "x": 0,
-                                                "y": 0,
-                                                "z": 0,
-                                                "set": true
-                                            }
-                                        },
-                                        {
-                                            "type": "origins:execute_command",
-                                            "command": "/attribute @s minecraft:generic.gravity modifier add nevariin:dream_sickle -1 add_multiplied_total"
-                                        },
-                                        {
-                                            "type": "origins:delay",
-                                            "ticks": 5,
-                                            "action": {
-                                                "type": "origins:and",
-                                                "actions": [{
-                                                        "type": "origins:execute_command",
-                                                        "command": "/function foxpaw:nevariin/dream_world/sphere/capture_sphere {radius:5}"
-                                                    },
-                                                    {
-                                                        "type": "origins:execute_command",
-                                                        "command": "/attribute @s minecraft:generic.gravity modifier remove nevariin:dream_sickle"
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        {
-                                            "type": "origins:swing_hand",
-                                            "hand": "MAIN_HAND"
-                                        }
-                                    ]
-                                }
+                                "type": "origins:change_resource",
+                                "resource": "*:*_slash_window",
+                                "operation": "set",
+                                "change": 100000
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_channeling",
+                                "operation": "set",
+                                "change": 0
                             }
                         ]
                     }
@@ -150,8 +284,8 @@
         "max": 100,
         "start_value": 0,
         "hud_render": {
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 14,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 3,
             "condition": {
                 "type": "origins:resource",
                 "resource": "*:*_cooldown",
@@ -166,8 +300,8 @@
         "max": 15,
         "start_value": 0,
         "hud_render": {
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 14,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 3,
             "condition": {
                 "type": "origins:resource",
                 "resource": "*:*_channeling",
@@ -217,8 +351,41 @@
                     "resource": "*:*_cooldown",
                     "change": -1,
                     "operation": "add"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_slash_window",
+                    "change": -1,
+                    "operation": "add"
                 }
             ]
+        }
+    },
+    "slash_window": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 40,
+        "min_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_cooldown",
+            "change": 1000,
+            "operation": "set"
+        }
+    },
+    "slash_window_display": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 1,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 3,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_slash_window",
+                "compare_to": 0,
+                "comparison": ">"
+            }
         }
     }
 }

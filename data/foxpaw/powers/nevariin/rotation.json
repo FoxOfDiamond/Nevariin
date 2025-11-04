@@ -1,0 +1,17 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "rotation":{
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3
+    },
+    "update":{
+        "type": "origins:action_over_time",
+        "interval": 5,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "/function foxpaw:nevariin/global/update_rotation"
+        }
+    }
+}
