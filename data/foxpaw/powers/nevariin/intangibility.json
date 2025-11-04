@@ -3,7 +3,7 @@
     "description": "Your ghost-like properties lets you take no suffocation damage, less magic damage and move without triggering sensors.",
     "type": "apoli:multiple",
     "suffocation": {
-        "type": "origins:modify_damage_taken",
+        "type": "origins:invulnerability",
         "damage_condition": {
             "type": "origins:or",
             "conditions": [{
@@ -13,12 +13,12 @@
                 {
                     "type": "origins:type",
                     "damage_type": "minecraft:in_wall"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:is_fall"
                 }
             ]
-        },
-        "modifier": {
-            "operation": "set_total",
-            "amount": 0
         }
     },
     "magic": {
