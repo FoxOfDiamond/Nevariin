@@ -1,0 +1,12 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "tick":{
+        "type": "origins:action_over_time",
+        "interval": 5,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "/particle minecraft:end_rod ~ ~1 ~ 0.2 0.4 0.2 0.01 10"
+        }
+    }
+}

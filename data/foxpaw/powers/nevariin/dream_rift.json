@@ -1,6 +1,6 @@
 {
     "name": "Dream rift",
-    "description": "Spend 80% dream power to tear a hole in the boundary between worlds. Create a portal that lasts for 5 minutes that any entity can use to travel between the real and dream world. All entities coming through the portal can no longer regenerate hp. Players return to the rift location with max hp and don't lose items when killed. Can be used while running to throw the portal forward a short distance, or while crouching to destroy a portal. Only one can exist at a time.",
+    "description": "Spend 50% dream power to tear a hole in the boundary between worlds. Create a portal that lasts for 5 minutes that any entity can use to travel between the real and dream world. All entities coming through the portal can no longer regenerate hp. Players return to the rift location with max hp and don't lose items when killed. Only one can exist at a time.",
     "type": "origins:multiple",
     "badges": [{
         "type": "origins:tooltip",
@@ -42,7 +42,7 @@
                 {
                     "condition": {
                         "type": "origins:resource",
-                        "compare_to": 800,
+                        "compare_to": 500,
                         "comparison": "<",
                         "resource": "*:nevariin/dream_power_dream_bar"
                     },
@@ -62,9 +62,9 @@
                 {
                     "condition": {
                         "type": "origins:resource",
-                        "compare_to": 100,
+                        "compare_to": 50,
                         "comparison": "==",
-                        "resource": "*:*_channel"
+                        "resource": "*:nevariin/channel_secondary"
                     },
                     "action": {
                         "type": "origins:and",
@@ -77,12 +77,12 @@
                             {
                                 "type": "origins:change_resource",
                                 "resource": "*:nevariin/dream_power_dream_bar",
-                                "change": -800,
+                                "change": -500,
                                 "operation": "add"
                             },
                             {
                                 "type": "origins:change_resource",
-                                "resource": "*:*_channel",
+                                "resource": "*:nevariin/channel_secondary",
                                 "change": 0,
                                 "operation": "set"
                             },
@@ -102,13 +102,13 @@
                         "type": "origins:and",
                         "actions": [{
                                 "type": "origins:change_resource",
-                                "resource": "*:*_channel",
+                                "resource": "*:nevariin/channel_secondary",
                                 "change": 1,
                                 "operation": "add"
                             },
                             {
                                 "type": "origins:change_resource",
-                                "resource": "*:*_channeling",
+                                "resource": "*:nevariin/channel_secondary_channeling",
                                 "change": 5,
                                 "operation": "set"
                             },
@@ -143,58 +143,12 @@
             }
         }
     },
-    "channel": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 100,
-        "start_value": 0,
-        "hud_render": {
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 13,
-            "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_channeling",
-                "compare_to": 0,
-                "comparison": ">"
-            }
-        }
-    },
-    "channeling": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 5,
-        "start_value": 0,
-        "min_action": {
-            "type": "origins:and",
-            "actions": [{
-
-                    "type": "origins:change_resource",
-                    "resource": "*:*_channel",
-                    "change": 0,
-                    "operation": "set"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "/function foxpaw:nevariin/global/channel_attribute_lost"
-                }
-            ]
-        },
-        "max_action": {
-            "type": "origins:execute_command",
-            "command": "/function foxpaw:nevariin/global/channel_attribute_gain"
-        }
-    },
     "release": {
         "type": "origins:action_over_time",
         "interval": 1,
         "entity_action": {
             "type": "origins:and",
-            "actions": [{
-                    "type": "origins:change_resource",
-                    "resource": "*:*_channeling",
-                    "change": -1,
-                    "operation": "add"
-                },
+            "actions": [
                 {
                     "type": "origins:change_resource",
                     "resource": "*:*_cooldown",

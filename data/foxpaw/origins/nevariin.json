@@ -17,6 +17,10 @@
 		"*:nevariin/dream_sickle",
 
 		"*:nevariin/dream_rift",
+		
+		"*:nevariin/dream_gate",
+
+		"*:nevariin/channel",
 
 		"*:nevariin/rotation"
 	],

@@ -1,6 +1,6 @@
 {
     "name": "Dream sickle",
-    "description": "Spend 20% dream power to travel between worlds after a short windup. Regenerates all your absorption hearts.",
+    "description": "Lunge and shove entities nearby to gain dream power and deal huge knockback. Can be recast to do a circular slash, or cast while sneaking to skip the lunge. Can destroy rifts and portals.",
     "type": "origins:multiple",
     "badges": [{
         "type": "origins:tooltip",
@@ -72,7 +72,7 @@
                             "type": "origins:and",
                             "actions": [{
                                     "type": "origins:execute_command",
-                                    "command": "/function foxpaw:nevariin/dream_world/sphere/capture_sphere {radius:5}"
+                                    "command": "function foxpaw:nevariin/dream_sickle/round_slash"
                                 },
                                 {
                                     "type": "origins:execute_command",
@@ -89,7 +89,8 @@
                                                 "action": {
                                                     "type": "origins:add_velocity",
                                                     "y": 0.5,
-                                                    "space": "world"
+                                                    "space": "world",
+                                                    "set": true
                                                 }
                                             },
                                             {
@@ -182,7 +183,7 @@
                                 "type": "origins:resource",
                                 "compare_to": 15,
                                 "comparison": "==",
-                                "resource": "*:*_channel"
+                                "resource": "*:nevariin/channel_primary"
                             },
                             {
                                 "type": "origins:sneaking"
@@ -223,7 +224,7 @@
                                     "type": "origins:and",
                                     "actions": [{
                                             "type": "origins:execute_command",
-                                            "command": "/function foxpaw:nevariin/dream_world/sphere/capture_sphere {radius:5}"
+                                            "command": "function foxpaw:nevariin/dream_sickle/round_slash"
                                         },
                                         {
                                             "type": "origins:execute_command",
@@ -240,7 +241,8 @@
                                                         "action": {
                                                             "type": "origins:add_velocity",
                                                             "y": 0.5,
-                                                            "space": "world"
+                                                            "space": "world",
+                                                            "set": true
                                                         }
                                                     },
                                                     {
@@ -275,7 +277,7 @@
                             },
                             {
                                 "type": "origins:change_resource",
-                                "resource": "*:*_channeling",
+                                "resource": "*:nevariin/channel_primary_channeling",
                                 "operation": "set",
                                 "change": 0
                             }
@@ -287,7 +289,7 @@
                         "type": "origins:resource",
                         "compare_to": 15,
                         "comparison": "==",
-                        "resource": "*:*_channel"
+                        "resource": "*:nevariin/channel_primary"
                     },
                     "action": {
                         "type": "origins:and",
@@ -297,7 +299,7 @@
                             },
                             {
                                 "type": "origins:change_resource",
-                                "resource": "*:*_channel",
+                                "resource": "*:nevariin/channel_primary",
                                 "change": 0,
                                 "operation": "set"
                             },
@@ -307,7 +309,8 @@
                                 "server": true,
                                 "space": "local",
                                 "z": 2.5,
-                                "y": 0.1
+                                "y": 0.1,
+                                "set": true
                             },
                             {
                                 "type": "origins:swing_hand",
@@ -321,7 +324,7 @@
                             },
                             {
                                 "type": "origins:change_resource",
-                                "resource": "*:*_channeling",
+                                "resource": "*:nevariin/channel_primary_channeling",
                                 "operation": "set",
                                 "change": 0
                             },
@@ -336,7 +339,8 @@
                                             "action": {
                                                 "type": "origins:add_velocity",
                                                 "y": 0.2,
-                                                "space": "world"
+                                                "space": "world",
+                                                "set": true
                                             }
                                         },
                                         {
@@ -364,13 +368,13 @@
                         "type": "origins:and",
                         "actions": [{
                                 "type": "origins:change_resource",
-                                "resource": "*:*_channel",
+                                "resource": "*:nevariin/channel_primary",
                                 "change": 1,
                                 "operation": "add"
                             },
                             {
                                 "type": "origins:change_resource",
-                                "resource": "*:*_channeling",
+                                "resource": "*:nevariin/channel_primary_channeling",
                                 "change": 5,
                                 "operation": "set"
                             },
@@ -405,58 +409,12 @@
             }
         }
     },
-    "channel": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 15,
-        "start_value": 0,
-        "hud_render": {
-            "sprite_location": "origins:textures/gui/resource_bar.png",
-            "bar_index": 3,
-            "condition": {
-                "type": "origins:resource",
-                "resource": "*:*_channeling",
-                "compare_to": 0,
-                "comparison": ">"
-            }
-        }
-    },
-    "channeling": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 5,
-        "start_value": 0,
-        "min_action": {
-            "type": "origins:and",
-            "actions": [{
-
-                    "type": "origins:change_resource",
-                    "resource": "*:*_channel",
-                    "change": 0,
-                    "operation": "set"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "/function foxpaw:nevariin/global/channel_attribute_lost"
-                }
-            ]
-        },
-        "max_action": {
-            "type": "origins:execute_command",
-            "command": "/function foxpaw:nevariin/global/channel_attribute_gain"
-        }
-    },
     "release": {
         "type": "origins:action_over_time",
         "interval": 1,
         "entity_action": {
             "type": "origins:and",
-            "actions": [{
-                    "type": "origins:change_resource",
-                    "resource": "*:*_channeling",
-                    "change": -1,
-                    "operation": "add"
-                },
+            "actions": [
                 {
                     "type": "origins:change_resource",
                     "resource": "*:*_cooldown",
