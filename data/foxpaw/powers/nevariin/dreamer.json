@@ -12,20 +12,5 @@
             "type": "origins:execute_command",
             "command": "/function foxpaw:nevariin/dreamer/respawn"
         }
-    },
-    "void":{
-        "type": "origins:modify_damage_taken",
-        "damage_condition": {
-            "type": "origins:type",
-            "damage_type":"minecraft:out_of_world"
-        },
-        "self_action": {
-            "type": "origins:execute_command",
-            "command": "/function foxpaw:nevariin/dream_world/void"
-        },
-        "modifier":{
-            "operation":"set_total",
-            "amount":0
-        }
     }
 }

@@ -1,0 +1,10 @@
+{
+    "powers": [
+        "foxpaw:global/void"
+    ],
+    "entity_types": [
+        "minecraft:player",
+        "minecraft:pig",
+        "minecraft:rabbit"
+    ]
+}
