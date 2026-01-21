@@ -1,0 +1,73 @@
+{
+    "type": "crafting_shaped",
+    "pattern": [
+        "mmm",
+        " s ",
+        "  s"
+    ],
+    "key": {
+        "m":{
+            "tag": "planks"
+        },
+        "s":{
+            "item":"stick"
+        }
+    },
+    "category": "equipment",
+    "result": {
+        "id": "wooden_sword",
+        "components": {
+            "custom_name": "{\"text\": \"Wooden scythe\",\"italic\": false}",
+            "custom_data": {
+                "foxpaw":"scythe",
+                "foxpaw_scythe_material":"wood"
+            },
+            "item_name": "{\"text\": \"wooden_scythe\"}",
+            "max_damage":80,
+            "attribute_modifiers":[
+                {
+                    "slot": "mainhand",
+                    "id": "foxpaw:scythe",
+                    "type": "generic.attack_speed",
+                    "amount": -0.5,
+                    "operation": "add_value"
+                },
+                {
+                    "slot": "mainhand",
+                    "id": "foxpaw:scythe",
+                    "type": "player.entity_interaction_range",
+                    "amount": 1,
+                    "operation": "add_value"
+                },
+                {
+                    "slot": "mainhand",
+                    "id": "foxpaw:scythe",
+                    "type": "player.block_interaction_range",
+                    "amount": 1,
+                    "operation": "add_value"
+                },
+                {
+                    "slot": "mainhand",
+                    "id": "foxpaw:scythe",
+                    "type": "player.sweeping_damage_ratio",
+                    "amount": 1,
+                    "operation": "add_value"
+                },
+                {
+                    "slot": "mainhand",
+                    "id": "foxpaw:scythe",
+                    "type": "generic.attack_damage",
+                    "amount": 1,
+                    "operation": "add_value"
+                },
+                {
+                    "slot": "mainhand",
+                    "id": "foxpaw:scythe",
+                    "type": "generic.attack_knockback",
+                    "amount": -1,
+                    "operation": "add_value"
+                }
+            ] 
+        }
+    }
+}
