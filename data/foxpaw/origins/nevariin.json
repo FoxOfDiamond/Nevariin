@@ -28,7 +28,9 @@
 
 		"*:nevariin/channel",
 
-		"*:nevariin/rotation"
+		"*:nevariin/rotation",
+		
+		"*:nevariin/dream_warrior"
 	],
 	"icon": {
 		"id": "minecraft:petrified_oak_slab"
