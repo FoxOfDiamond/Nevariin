@@ -1,32 +1,31 @@
 {
-    "name": "Dreamsense",
-    "description": "Shows you the location of nearby entities, even in different dimensions. Much weaker in the overworld.",
+    "name": "Dreamshaper",
+    "description": "Capture a small area around you. Shift to destroy it instead.",
     "type": "origins:active_self",
-    "cooldown": 20,
+    "cooldown": 40,
     "entity_action": {
         "type": "origins:and",
         "actions": [{
             "type": "origins:if_else",
             "condition": {
-                "type": "origins:dimension",
-                "dimension": "foxpaw:dream_world"
+                "type": "origins:sneaking"
             },
             "if_action": {
                 "type": "origins:execute_command",
-                "command": "function foxpaw:nevariin/dreamsense/dream_world"
+                "command": "/fill ~1 ~1 ~1 ~-1 ~-1 ~-1 air replace minecraft:petrified_oak_slab"
             },
             "else_action": {
                 "type": "origins:execute_command",
-                "command": "function foxpaw:nevariin/dreamsense/overworld"
+                "command": "/function foxpaw:nevariin/dream_world/hemisphere/capture_hemisphere {radius:2}"
             }
         }]
     },
     "key": {
-        "key": "key.origins.secondary_active",
+        "key": "key.origins.primary_active",
         "continuous": false
     },
     "hud_render": {
         "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
-        "bar_index": 7
+        "bar_index": 11
     }
 }
