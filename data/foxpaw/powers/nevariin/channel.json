@@ -59,7 +59,7 @@
     "primary": {
         "type": "origins:resource",
         "min": 0,
-        "max": 15,
+        "max": 20,
         "start_value": 0,
         "hud_render": {
             "sprite_location": "origins:textures/gui/resource_bar.png",

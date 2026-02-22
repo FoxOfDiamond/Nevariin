@@ -1,0 +1,1 @@
+execute as @e[predicate=foxpaw:in_dream_world, type=#foxpaw:dead] run function foxpaw:nevariin/dream_world/void_check

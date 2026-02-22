@@ -1,0 +1,2 @@
+execute at @s as @e[type=armor_stand,predicate=foxpaw:in_dream_world,tag=nevariin_dream_vortex] in foxpaw:dream_world run tp @s ~ ~ ~
+execute at @s as @e[type=armor_stand,predicate=!foxpaw:in_dream_world,tag=nevariin_dream_vortex] in overworld run tp @s ~ ~ ~

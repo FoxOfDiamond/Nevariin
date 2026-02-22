@@ -1,0 +1,18 @@
+{
+    "values": [
+        "#zombies",
+        "#skeletons",
+        "blaze",
+        "breeze",
+        "spider",
+        "silverfish",
+        "cave_spider",
+        "endermite",
+        "enderman",
+        "creeper",
+        "shulker",
+        "wither",
+        "ender_dragon",
+        "witch"
+    ]
+}

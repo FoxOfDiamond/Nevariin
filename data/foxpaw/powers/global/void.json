@@ -1,20 +1,56 @@
 {
-    "type": "origins:modify_damage_taken",
-    "damage_condition": {
-        "type": "origins:type",
-        "damage_type": "minecraft:out_of_world"
+    "type": "origins:multiple",
+    "void": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:type",
+            "damage_type": "minecraft:out_of_world"
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "/function foxpaw:nevariin/dream_world/void"
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "set": true,
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "set_total",
+            "amount": 0
+        },
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "foxpaw:dream_world"
+        }
     },
-    "self_action": {
-        "type": "origins:execute_command",
-        "command": "/function foxpaw:nevariin/dream_world/void"
-    },
-    "modifier": {
-        "operation": "set_total",
-        "amount": 0
-    },
-    "condition": {
-        "type": "origins:dimension",
-        "dimension": "foxpaw:dream_world"
+    "fall": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:type",
+            "damage_type": "minecraft:fall"
+        },
+        "modifier": {
+            "operation": "set_total",
+            "amount": 0
+        },
+        "self_action": {
+            "type": "origins:add_velocity",
+            "set": true,
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "foxpaw:dream_world"
+        }
     },
     "hidden": true
 }

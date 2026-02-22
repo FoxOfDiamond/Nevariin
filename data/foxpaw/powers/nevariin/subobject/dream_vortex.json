@@ -1,0 +1,57 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "tick": {
+        "type": "origins:action_over_time",
+        "interval": 5,
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "shape": "sphere",
+            "radius": 10,
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [{
+                        "type": "origins:add_velocity",
+                        "reference": "position",
+                        "z": -0.25
+                    },
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [{
+                                "type": "origins:apply_effect",
+                                "effect": {
+                                    "id": "minecraft:slowness",
+                                    "duration": 20,
+                                    "amplifier": 0
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "/function foxpaw:nevariin/dreamsense/victim"
+                            }
+                        ]
+                        }
+                    }
+                ]
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:origin",
+                    "inverted": true,
+                    "origin": "foxpaw:nevariin"
+                }
+            }
+        }
+    },
+    "tick2": {
+        "type": "origins:action_over_time",
+        "interval": 5,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "/function foxpaw:nevariin/dream_vortex/vortex_particle"
+        }
+    }
+}

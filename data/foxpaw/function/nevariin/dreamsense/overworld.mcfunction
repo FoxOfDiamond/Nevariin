@@ -1,0 +1,1 @@
+power grant @e[distance=..15] foxpaw:nevariin/subobject/dreamsense_highlight

@@ -1,0 +1,28 @@
+{
+    "name": "Dreamsense",
+    "description": "Shows you the location of nearby entities, even in different dimensions. Much weaker in the overworld.",
+    "type": "origins:active_self",
+    "cooldown": 20,
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [{
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:dimension",
+                "dimension": "foxpaw:dream_world"
+            },
+            "if_action": {
+                "type": "origins:execute_command",
+                "command": "function foxpaw:nevariin/dreamsense/dream_world"
+            },
+            "else_action": {
+                "type": "origins:execute_command",
+                "command": "function foxpaw:nevariin/dreamsense/overworld"
+            }
+        }]
+    },
+    "key": {
+        "key": "key.origins.secondary_active",
+        "continuous": false
+    }
+}

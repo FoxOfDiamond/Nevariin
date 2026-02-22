@@ -9,6 +9,13 @@
         "egg",
         "area_effect_cloud",
         "ender_pearl",
-        "painting"
+        "painting",
+        "boat",
+        "chest_boat",
+        "minecart",
+        "tnt_minecart",
+        "command_block_minecart",
+        "furnace_minecart",
+        "end_crystal"
     ]
 }
