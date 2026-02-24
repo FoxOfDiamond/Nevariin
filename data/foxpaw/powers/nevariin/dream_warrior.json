@@ -1,18 +1,59 @@
 {
-    "name":"Dream warrior",
+    "name": "Dream warrior",
     "description": "In your own domain, you can only take 2 hearts maximum from a single hit.",
-    "type": "origins:modify_damage_taken",
-    "damage_condition": {
-        "type": "origins:amount",
-        "compare_to": 7.5,
-        "comparison": ">"
+    "type": "origins:multiple",
+    "reduced": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [{
+                    "type": "origins:amount",
+                    "compare_to": 6,
+                    "comparison": ">"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "bypasses_armor",
+                    "inverted": true
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "set_total",
+            "amount": 6
+        },
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "foxpaw:dream_world"
+        }
     },
-    "modifier":{
-        "operation":"set_total",
-        "amount": 7.5
-    },
-    "condition": {
-        "type": "origins:dimension",
-        "dimension": "foxpaw:dream_world"
+    "bypass": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [{
+                    "type": "origins:amount",
+                    "compare_to": 3,
+                    "comparison": ">"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "bypasses_armor"
+                },
+                {
+                    "type": "origins:type",
+                    "damage_type":"minecraft:generic_kill",
+                    "inverted": true
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "set_total",
+            "amount": 3
+        },
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "foxpaw:dream_world"
+        }
     }
 }

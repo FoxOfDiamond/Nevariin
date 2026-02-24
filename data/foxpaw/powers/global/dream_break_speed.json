@@ -7,7 +7,7 @@
     "hidden": true,
     "modifier":{
         "operation":"set_total",
-        "amount": 0.5,
+        "amount": 1,
         "id":"dream_break_speed"
     }
 }

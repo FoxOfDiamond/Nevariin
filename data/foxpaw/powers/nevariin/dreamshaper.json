@@ -1,28 +1,19 @@
 {
     "name": "Dreamshaper",
-    "description": "Capture a small area around you. Shift to destroy it instead.",
+    "description": "Capture a small area around you.",
     "type": "origins:active_self",
-    "cooldown": 40,
+    "cooldown": 20,
     "entity_action": {
-        "type": "origins:and",
-        "actions": [{
-            "type": "origins:if_else",
-            "condition": {
-                "type": "origins:sneaking"
-            },
-            "if_action": {
-                "type": "origins:execute_command",
-                "command": "/fill ~1 ~1 ~1 ~-1 ~-1 ~-1 air replace minecraft:petrified_oak_slab"
-            },
-            "else_action": {
-                "type": "origins:execute_command",
-                "command": "/function foxpaw:nevariin/dream_world/hemisphere/capture_hemisphere {radius:2}"
-            }
-        }]
+        "type": "origins:execute_command",
+        "command": "/function foxpaw:nevariin/dream_world/hemisphere/capture_hemisphere {radius:2}"
     },
     "key": {
         "key": "key.origins.primary_active",
         "continuous": false
+    },
+    "condition": {
+        "type": "origins:sneaking",
+        "inverted": true
     },
     "hud_render": {
         "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",

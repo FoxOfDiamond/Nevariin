@@ -1,0 +1,140 @@
+{
+    "type": "origins:multiple",
+    "tick": {
+        "type": "origins:action_over_time",
+        "interval": 5,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:change_resource",
+                    "resource": "*:*_frame",
+                    "change": 1,
+                    "operation": "add"
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [{
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_frame",
+                                "compare_to": 1,
+                                "comparison": "=="
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "/function foxpaw:nevariin/seal_of_binding/particle1"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_frame",
+                                "compare_to": 2,
+                                "comparison": "=="
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "/function foxpaw:nevariin/seal_of_binding/particle2"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_frame",
+                                "compare_to": 3,
+                                "comparison": "=="
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "/function foxpaw:nevariin/seal_of_binding/particle3"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_frame",
+                                "compare_to": 4,
+                                "comparison": "=="
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "/function foxpaw:nevariin/seal_of_binding/particle4"
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_frame",
+                                "compare_to": 5,
+                                "comparison": "=="
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "/function foxpaw:nevariin/seal_of_binding/particle5"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[predicate=foxpaw:in_dream_world,tag=nevariin_bound]",
+                    "bientity_action": {
+                        "type": "origins:add_velocity",
+                        "z": -1,
+                        "set": true
+                    },
+                    "bientity_condition": {
+                        "type": "origins:distance",
+                        "compare_to": 15,
+                        "comparison": ">"
+                    }
+                }
+            ]
+        }
+    },
+    "tick2":{
+        "type": "origins:action_over_time",
+        "interval": 2,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "/execute as @e[predicate=foxpaw:in_dream_world,tag=nevariin_bound] run function foxpaw:nevariin/seal_of_binding/tether_particle"
+                }
+            ]
+        }
+    },
+    "frame": {
+        "type": "origins:resource",
+        "min": 1,
+        "max": 6,
+        "max_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_frame",
+            "change": 1,
+            "operation": "set"
+        }
+    },
+    "lifetime": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 120,
+        "start_value": 0,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "/function foxpaw:nevariin/seal_of_binding/cleanup"
+                }
+            ]
+        }
+    },
+    "callback":{
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "/power grant @e[tag=nevariin_bound] foxpaw:nevariin/subobject/bound"
+        }
+    }
+}

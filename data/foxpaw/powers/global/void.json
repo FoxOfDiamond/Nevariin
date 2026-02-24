@@ -52,5 +52,20 @@
             "dimension": "foxpaw:dream_world"
         }
     },
+    "suffocate": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:type",
+            "damage_type": "minecraft:in_wall"
+        },
+        "modifier": {
+            "operation": "set_total",
+            "amount": 0
+        },
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "foxpaw:dream_world"
+        }
+    },
     "hidden": true
 }

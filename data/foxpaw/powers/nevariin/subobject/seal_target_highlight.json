@@ -1,0 +1,72 @@
+{
+    "type": "origins:multiple",
+    "glow_hostile": {
+        "type": "origins:self_glow",
+        "entity_condition": {
+            "type": "origins:origin",
+            "origin": "foxpaw:nevariin"
+        },
+        "condition": {
+            "type": "origins:in_tag",
+            "tag": "foxpaw:hostile"
+        },
+        "red": 1,
+        "blue": 0,
+        "green": 0
+    },
+    "glow_dead": {
+        "type": "origins:self_glow",
+        "entity_condition": {
+            "type": "origins:origin",
+            "origin": "foxpaw:nevariin"
+        },
+        "condition": {
+            "type": "origins:in_tag",
+            "tag": "foxpaw:dead"
+        },
+        "red": 1,
+        "blue": 0,
+        "green": 1
+    },
+    "glow_player": {
+        "type": "origins:self_glow",
+        "entity_condition": {
+            "type": "origins:origin",
+            "origin": "foxpaw:nevariin"
+        },
+        "condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:player"
+        },
+        "red": 0,
+        "blue": 1,
+        "green": 0
+    },
+    "glow_passive": {
+        "type": "origins:self_glow",
+        "entity_condition": {
+            "type": "origins:origin",
+            "origin": "foxpaw:nevariin"
+        },
+        "condition": {
+            "type": "origins:or",
+            "conditions": [{
+                    "type": "origins:in_tag",
+                    "tag": "foxpaw:dead"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:player"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "foxpaw:hostile"
+                }
+            ],
+            "inverted": true
+        },
+        "red": 0,
+        "blue": 0,
+        "green": 1
+    }
+}

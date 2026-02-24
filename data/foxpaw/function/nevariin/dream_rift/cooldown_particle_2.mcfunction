@@ -1,1 +1,1 @@
-particle dust{scale:1,color:[1.0,1.0,0.8]} ~ ~1 ~ 0.12 0.25 0.12 0 15
+particle dust{scale:1.5,color:[1.0,1.0,0.8]} ~ ~1 ~ 0.12 0.25 0.12 0 15

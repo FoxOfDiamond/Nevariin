@@ -160,6 +160,12 @@
                             {
                                 "type": "origins:execute_command",
                                 "command": "function foxpaw:nevariin/dream_vortex/tick"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:nevariin/dream_power_dream_bar",
+                                "change": -5,
+                                "operation": "add"
                             }
                         ]
                     },

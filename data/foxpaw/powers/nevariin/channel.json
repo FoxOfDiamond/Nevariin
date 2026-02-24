@@ -11,7 +11,7 @@
             "bar_index": 13,
             "condition": {
                 "type": "origins:resource",
-                "resource": "*:*_secondary_channeling",
+                "resource": "*:*_secondary",
                 "compare_to": 0,
                 "comparison": ">"
             }
@@ -48,12 +48,11 @@
         "entity_action": {
             "type": "origins:and",
             "actions": [{
-                    "type": "origins:change_resource",
-                    "resource": "*:*_secondary_channeling",
-                    "change": -1,
-                    "operation": "add"
-                }
-            ]
+                "type": "origins:change_resource",
+                "resource": "*:*_secondary_channeling",
+                "change": -1,
+                "operation": "add"
+            }]
         }
     },
     "primary": {
@@ -66,7 +65,7 @@
             "bar_index": 3,
             "condition": {
                 "type": "origins:resource",
-                "resource": "*:*_primary_channeling",
+                "resource": "*:*_primary",
                 "compare_to": 0,
                 "comparison": ">"
             }
@@ -78,19 +77,27 @@
         "max": 5,
         "start_value": 0,
         "min_action": {
-            "type": "origins:and",
-            "actions": [{
-
-                    "type": "origins:change_resource",
-                    "resource": "*:*_primary",
-                    "change": 0,
-                    "operation": "set"
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "/function foxpaw:nevariin/global/channel_attribute_lost"
-                }
-            ]
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:nevariin/seal_of_binding_channel_done",
+                "compare_to": 0,
+                "comparison": "=="
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [{
+                        "type": "origins:change_resource",
+                        "resource": "*:*_primary",
+                        "change": 0,
+                        "operation": "set"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "/function foxpaw:nevariin/global/channel_attribute_lost"
+                    }
+                ]
+            }
         },
         "max_action": {
             "type": "origins:execute_command",
@@ -101,14 +108,10 @@
         "type": "origins:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
-            "actions": [{
-                    "type": "origins:change_resource",
-                    "resource": "*:*_primary_channeling",
-                    "change": -1,
-                    "operation": "add"
-                }
-            ]
+            "type": "origins:change_resource",
+            "resource": "*:*_primary_channeling",
+            "change": -1,
+            "operation": "add"
         }
     }
 }

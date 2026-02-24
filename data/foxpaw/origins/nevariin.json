@@ -30,7 +30,9 @@
 
 		"*:nevariin/rotation",
 		
-		"*:nevariin/dream_warrior"
+		"*:nevariin/dream_warrior",
+		
+		"*:nevariin/seal_of_binding"
 	],
 	"icon": {
 		"id": "minecraft:petrified_oak_slab"

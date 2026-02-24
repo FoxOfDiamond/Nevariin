@@ -1,0 +1,2 @@
+particle dust{scale:1.5,color:[1.0,0.2,0.2]} ~ ~ ~ 0.15 0.15 0.15 0 3
+execute unless entity @e[distance=..1,tag=nevariin_binding_seal] if entity @e[distance=..40,tag=nevariin_binding_seal] positioned ^ ^ ^0.5 run function foxpaw:nevariin/seal_of_binding/tether_raycast_pull

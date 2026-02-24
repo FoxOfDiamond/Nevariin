@@ -1,6 +1,6 @@
 {
     "name": "Dream sickle",
-    "description": "Lunge and shove entities nearby to gain dream power and deal huge knockback. Can be recast to do a circular slash, or cast while sneaking to skip the lunge. Can destroy rifts and portals.",
+    "description": "Lunge and shove entities nearby to gain dream power and deal huge knockback, phasing through dream blocks in the process. Can be recast to do a circular slash, or cast while sneaking to skip the lunge. Can destroy rifts and portals.",
     "type": "origins:multiple",
     "badges": [{
         "type": "origins:tooltip",
@@ -155,6 +155,17 @@
                 {
                     "condition": {
                         "type": "origins:resource",
+                        "resource": "*:nevariin/seal_of_binding_channel_done",
+                        "compare_to": 1,
+                        "comparison": "=="
+                    },
+                    "action": {
+                        "type": "origins:nothing"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
                         "compare_to": 0,
                         "comparison": ">",
                         "resource": "*:*_cooldown"
@@ -165,7 +176,6 @@
                 },
                 {
                     "condition": {
-
                         "type": "origins:resource",
                         "compare_to": 0,
                         "comparison": ">",
@@ -414,8 +424,7 @@
         "interval": 1,
         "entity_action": {
             "type": "origins:and",
-            "actions": [
-                {
+            "actions": [{
                     "type": "origins:change_resource",
                     "resource": "*:*_cooldown",
                     "change": -1,
@@ -455,6 +464,20 @@
                 "compare_to": 0,
                 "comparison": ">"
             }
+        }
+    },
+    "slash_phase": {
+        "type": "origins:phasing",
+        "block_condition": {
+            "type": "origins:block",
+            "block": "minecraft:petrified_oak_slab"
+        },
+        "render_type": "remove_blocks",
+        "condition": {
+            "type": "origins:resource",
+            "compare_to": 0,
+            "comparison": ">",
+            "resource": "*:*_slash_window"
         }
     }
 }
