@@ -23,8 +23,16 @@
             "amount": 6
         },
         "condition": {
-            "type": "origins:dimension",
-            "dimension": "foxpaw:dream_world"
+            "type": "origins:or",
+            "conditions": [{
+                    "type": "origins:dimension",
+                    "dimension": "foxpaw:dream_world"
+                },
+                {
+                    "type": "origins:power",
+                    "power": "*:nevariin/subobject/bound"
+                }
+            ]
         }
     },
     "bypass": {
@@ -42,7 +50,7 @@
                 },
                 {
                     "type": "origins:type",
-                    "damage_type":"minecraft:generic_kill",
+                    "damage_type": "minecraft:generic_kill",
                     "inverted": true
                 }
             ]
@@ -52,8 +60,16 @@
             "amount": 3
         },
         "condition": {
-            "type": "origins:dimension",
-            "dimension": "foxpaw:dream_world"
+            "type": "origins:or",
+            "conditions": [{
+                    "type": "origins:dimension",
+                    "dimension": "foxpaw:dream_world"
+                },
+                {
+                    "type": "origins:power",
+                    "power": "*:nevariin/subobject/bound"
+                }
+            ]
         }
     }
 }

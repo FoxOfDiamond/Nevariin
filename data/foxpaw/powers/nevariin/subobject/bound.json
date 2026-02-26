@@ -30,8 +30,45 @@
             }
         },
         "modifier": {
-            "operation": "multiply_total_additive",
-            "amount": 1
+            "operation": "multiply_total_multiplicative",
+            "amount": 0.7
+        }
+    },
+    "damage_inc_org": {
+        "type": "origins:modify_damage_taken",
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [{
+                        "type": "origins:power",
+                        "power": "*:*"
+                    },
+                    {
+                        "type": "origins:origin",
+                        "origin": "*:nevariin"
+                    }
+                ]
+            }
+        },
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": 0.3
+        }
+    },
+    "damage_deal": {
+        "type": "origins:modify_damage_dealt",
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:power",
+                "power": "*:*",
+                "inverted": true
+            }
+        },
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.8
         }
     },
     "damage_red": {
@@ -40,12 +77,13 @@
             "type": "origins:actor_condition",
             "condition": {
                 "type": "origins:power",
-                "power": "*:*"
+                "power": "*:*",
+                "inverted": true
             }
         },
         "modifier": {
-            "operation": "multiply_total_additive",
-            "amount": -0.7
+            "operation": "multiply_total_multiplicative",
+            "amount": -0.8
         }
     }
 }

@@ -1,0 +1,20 @@
+{
+    "name": "Radiant",
+    "description": "Worshipping the sun deity lets you do double damage to undead mobs and players. Your non-damaging abilities deal daamge to them and light them on fire, and they take double the burning damage while in the dream world.",
+    "type": "origins:multiple",
+    "damage": {
+        "type": "origins:modify_damage_dealt",
+        "target_condition": {
+            "type": "origins:in_tag",
+            "tag": "sensitive_to_smite"
+        },
+        "target_action": {
+            "type": "origins:set_on_fire",
+            "duration": 1
+        },
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "amount": 1
+        }
+    }
+}

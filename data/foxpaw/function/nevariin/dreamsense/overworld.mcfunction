@@ -1,1 +1,1 @@
-power grant @e[distance=..15] foxpaw:nevariin/subobject/dreamsense_highlight
+power grant @e[distance=..15, type=!armor_stand] foxpaw:nevariin/subobject/dreamsense_highlight

@@ -2,15 +2,13 @@
     "name": "Manifest",
     "description": "Spend 20% dream power to travel between worlds after a short windup. Regenerates all your absorption hearts.",
     "type": "origins:multiple",
-    "badges": [
-        {
-            "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/arrow_up.png",
-            "text":{
-                "text": "Secondary key while looking straight up"
-            }
+    "badges": [{
+        "type": "origins:tooltip",
+        "sprite": "origins:textures/gui/badge/arrow_up.png",
+        "text": {
+            "text": "Secondary key while looking straight up"
         }
-    ],
+    }],
     "active": {
         "type": "origins:active_self",
         "key": {
@@ -19,8 +17,7 @@
         },
         "entity_action": {
             "type": "origins:if_else_list",
-            "actions": [
-                {
+            "actions": [{
                     "condition": {
                         "type": "origins:resource",
                         "resource": "*:nevariin/rotation_rotation",
@@ -29,6 +26,15 @@
                     },
                     "action": {
                         "type": "origins:nothing"
+                    }
+                },
+                {
+                    "action": {
+                        "type": "apoli:nothing"
+                    },
+                    "condition": {
+                        "type": "origins:power",
+                        "power": "*:nevariin/subobject/bound"
                     }
                 },
                 {
@@ -76,7 +82,7 @@
                                 "resource": "*:*_cooldown",
                                 "change": 1000,
                                 "operation": "set"
-                            },{
+                            }, {
                                 "type": "origins:change_resource",
                                 "resource": "*:nevariin/dream_power_dream_bar",
                                 "change": -200,
@@ -146,14 +152,12 @@
         "interval": 1,
         "entity_action": {
             "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_cooldown",
-                    "change": -1,
-                    "operation": "add"
-                }
-            ]
+            "actions": [{
+                "type": "origins:change_resource",
+                "resource": "*:*_cooldown",
+                "change": -1,
+                "operation": "add"
+            }]
         }
     }
 }

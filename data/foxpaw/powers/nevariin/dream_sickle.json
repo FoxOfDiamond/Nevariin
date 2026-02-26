@@ -106,6 +106,32 @@
                                                     "change": 200,
                                                     "operation": "add"
                                                 }
+                                            },
+                                            {
+                                                "type": "origins:if_else",
+                                                "condition": {
+                                                    "type": "origins:target_condition",
+                                                    "condition": {
+                                                        "type": "origins:in_tag",
+                                                        "tag": "sensitive_to_smite"
+                                                    }
+                                                },
+                                                "if_action": {
+                                                    "type": "origins:and",
+                                                    "actions": [{
+                                                            "type": "origins:damage",
+                                                            "amount": 4,
+                                                            "damage_type": "in_fire"
+                                                        },
+                                                        {
+                                                            "type": "origins:target_action",
+                                                            "action": {
+                                                                "type": "origins:set_on_fire",
+                                                                "duration": 8
+                                                            }
+                                                        }
+                                                    ]
+                                                }
                                             }
                                         ]
                                     }
@@ -268,6 +294,32 @@
                                                             "change": 200,
                                                             "operation": "add"
                                                         }
+                                                    },
+                                                    {
+                                                        "type": "origins:if_else",
+                                                        "condition": {
+                                                            "type": "origins:target_condition",
+                                                            "condition": {
+                                                                "type": "origins:in_tag",
+                                                                "tag": "sensitive_to_smite"
+                                                            }
+                                                        },
+                                                        "if_action": {
+                                                            "type": "origins:and",
+                                                            "actions": [{
+                                                                    "type": "origins:damage",
+                                                                    "amount": 4,
+                                                                    "damage_type": "in_fire"
+                                                                },
+                                                                {
+                                                                    "type": "origins:target_action",
+                                                                    "action": {
+                                                                        "type": "origins:set_on_fire",
+                                                                        "duration": 8
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
                                                     }
                                                 ]
                                             }
@@ -365,6 +417,32 @@
                                                 "resource": "*:nevariin/dream_power_dream_bar",
                                                 "change": 150,
                                                 "operation": "add"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:if_else",
+                                            "condition": {
+                                                "type": "origins:target_condition",
+                                                "condition": {
+                                                    "type": "origins:in_tag",
+                                                    "tag": "sensitive_to_smite"
+                                                }
+                                            },
+                                            "if_action": {
+                                                "type": "origins:and",
+                                                "actions": [{
+                                                        "type": "origins:damage",
+                                                        "amount": 2,
+                                                        "damage_type": "in_fire"
+                                                    },
+                                                    {
+                                                        "type": "origins:target_action",
+                                                        "action": {
+                                                            "type": "origins:set_on_fire",
+                                                            "duration": 3
+                                                        }
+                                                    }
+                                                ]
                                             }
                                         }
                                     ]

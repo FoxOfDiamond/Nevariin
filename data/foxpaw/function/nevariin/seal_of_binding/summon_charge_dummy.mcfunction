@@ -1,1 +1,1 @@
-execute unless entity @e[tag = nevariin_charge_target] run summon armor_stand ~ ~ ~ {Marker:1b, Tags:["nevariin_charge_target"]}
+execute unless entity @e[tag = nevariin_charge_target] run summon armor_stand ~ ~ ~ {Marker:1b, Tags:["nevariin_charge_target"], Invisible:1b}
