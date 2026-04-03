@@ -1,0 +1,1 @@
+$resource operation @s foxpaw:nevariin/rotation_rotation = @s nevariin_math$(blank)

@@ -1,40 +1,40 @@
 {
 	"powers": [
-		"*:nevariin/vulpine_grace",
-		"*:nevariin/intangibility",
-		"*:nevariin/ethereal_vitality",
-		"*:nevariin/dishonored",
+		"foxpaw:nevariin/vulpine_grace",
+		"foxpaw:nevariin/intangibility",
+		"foxpaw:nevariin/ethereal_vitality",
+		"foxpaw:nevariin/dishonored",
 
-		"*:nevariin/dream_power",
-		"*:nevariin/dream_attack_refill",
+		"foxpaw:nevariin/dream_power",
+		"foxpaw:nevariin/dream_attack_refill",
 		
-		"*:nevariin/false_knight",
+		"foxpaw:nevariin/false_knight",
 		
-		"*:nevariin/dreamer",
+		"foxpaw:nevariin/dreamer",
 
-		"*:nevariin/manifest",
+		"foxpaw:nevariin/manifest",
 
-		"*:nevariin/dream_sickle",
+		"foxpaw:nevariin/dream_sickle",
 
-		"*:nevariin/dream_vortex",
+		"foxpaw:nevariin/dream_vortex",
 		
-		"*:nevariin/dreamsense",
+		"foxpaw:nevariin/dreamsense",
 		
-		"*:nevariin/dreamshaper",
+		"foxpaw:nevariin/dreamshaper",
 
-		"*:nevariin/dream_rift",
+		"foxpaw:nevariin/dream_rift",
 		
-		"*:nevariin/dream_gate",
+		"foxpaw:nevariin/dream_gate",
 
-		"*:nevariin/channel",
+		"foxpaw:nevariin/channel",
 
-		"*:nevariin/rotation",
+		"foxpaw:nevariin/rotation",
 		
-		"*:nevariin/dream_warrior",
+		"foxpaw:nevariin/dream_warrior",
 		
-		"*:nevariin/seal_of_binding",
+		"foxpaw:nevariin/seal_of_binding",
 		
-		"*:nevariin/radiant"
+		"foxpaw:nevariin/radiant"
 	],
 	"icon": {
 		"id": "minecraft:petrified_oak_slab"

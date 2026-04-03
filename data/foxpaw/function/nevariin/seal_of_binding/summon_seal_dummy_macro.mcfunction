@@ -1,0 +1,1 @@
+$power grant @e[tag=nevariin_binding_seal] foxpaw:nevariin/subobject/seal_of_binding$(blank)

@@ -1,1 +1,1 @@
-power grant @e[distance=..15, type=!armor_stand] foxpaw:nevariin/subobject/dreamsense_highlight
+execute in overworld as @e[distance=0.01..100] at @s run function foxpaw:nevariin/dreamsense/victim_overworld

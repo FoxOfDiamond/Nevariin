@@ -1,0 +1,1 @@
+$power remove @e[tag=nevariin_bound] foxpaw:nevariin/subobject/bound$(blank)

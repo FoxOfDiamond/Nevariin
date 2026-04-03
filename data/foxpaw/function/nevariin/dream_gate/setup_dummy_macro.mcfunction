@@ -1,0 +1,1 @@
+$power grant @s foxpaw:nevariin/subobject/dream_gate$(blank)
